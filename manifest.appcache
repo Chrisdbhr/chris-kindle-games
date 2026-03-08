@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 1.8 (Button Alignment Update)
+# version 1.12 (Header Layout 2.0)
 
 CACHE:
 # HTML
@@ -23,6 +23,7 @@ js/sudoku.js
 js/battleship.js
 js/wordsearch.js
 js/hangman.js
+js/scale.js
 
 # JSON Locales
 locales/en.json

@@ -38,24 +38,46 @@ body {
 }
 
 header {
-    display: table;
-    /* Fallback */
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between; /* Brand Left, Button Right */
-    -webkit-align-items: center;
-    align-items: center;
+    display: block;
+    position: relative;
     border-bottom: 2px solid black;
     padding-bottom: 5px;
     margin-bottom: 15px;
+    height: 40px;
+    /* Force height for absolute positioning of children */
+    line-height: 40px;
+}
+
+.header-left {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .brand-text {
-    font-size: 1em;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 0.9em;
     color: #666;
     letter-spacing: 1px;
-    margin-left: 10px;
+    margin: 0;
+}
+
+.header-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: baseline;
+}
+
+h1 {
+    font-size: 1.2em;
+    margin-bottom: 0px;
+    text-align: right;
 }
 
 .lang-selector button {
@@ -539,11 +561,10 @@ h3 {
 /* This targets modern smartphones with high DPI but small physical widths */
 @media screen and (max-width: 500px) {
     .container {
-        /* Aggressive scaling for mobile */
-        transform: scale(1.6);
+        /* JS scale.js now handles dynamic scaling instead of this fixed 1.6 */
+        /* transform: scale(1.6); */
         transform-origin: top center;
-        margin-bottom: 60vh;
-        /* Create space for the scaled content height */
+        /* margin-bottom: 60vh; */
     }
 
     header {
@@ -551,6 +572,7 @@ h3 {
     }
 
     /* Adjust game boards to fit the scaled container on narrow screens */
+    /* Many games have internal board scaling that we should keep if they are still too big */
     .board,
     .memory-board,
     .sudoku-board,
