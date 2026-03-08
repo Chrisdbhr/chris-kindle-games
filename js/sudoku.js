@@ -11,7 +11,7 @@ var currentDifficulty = 'easy';
 
 // Difficulty settings (# of empty cells)
 var difficulties = {
-    easy: 40,
+    easy: 25,
     medium: 50,
     hard: 60
 };

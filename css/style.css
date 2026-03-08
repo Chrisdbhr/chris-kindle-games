@@ -432,3 +432,46 @@ h3 {
     cursor: default;
     pointer-events: none;
 }
+
+/* Animation for victory */
+@keyframes victory-flash {
+    0%   { background-color: white; color: black; }
+    50%  { background-color: black; color: white; }
+    100% { background-color: white; color: black; }
+}
+
+.victory-flash {
+    -webkit-animation: victory-flash 0.4s steps(2, start) 3;
+    animation: victory-flash 0.4s steps(2, start) 3;
+}
+
+/* Mobile Responsive Zooming */
+/* This targets modern smartphones with high DPI but small physical widths */
+@media screen and (max-width: 500px) {
+    .container {
+        /* Aggressive scaling for mobile */
+        transform: scale(1.6);
+        transform-origin: top center;
+        margin-bottom: 60vh; /* Create space for the scaled content height */
+    }
+    
+    header {
+        margin-bottom: 20px;
+    }
+
+    /* Adjust game boards to fit the scaled container on narrow screens */
+    .board, .memory-board, .sudoku-board, .battleship-board, .wordsearch-board, .hangman-kb {
+        transform: scale(0.85);
+        transform-origin: top center;
+    }
+
+    /* Buttons need to be even larger for big fingers */
+    .btn, .game-card {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
