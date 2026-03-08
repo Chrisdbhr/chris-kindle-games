@@ -181,7 +181,15 @@ function checkResult() {
     }
 
     if (roundWon) {
-        statusMessage.innerText = currentPlayer === 'X' ? getTranslation('win_x') : getTranslation('win_o');
+        if (currentPlayer === 'X') {
+            statusMessage.innerText = getTranslation('win_x');
+        } else {
+            if (mode === 'pve') {
+                statusMessage.innerText = getTranslation('win_ai');
+            } else {
+                statusMessage.innerText = getTranslation('win_o');
+            }
+        }
         scores[currentPlayer]++;
         saveScores();
         updateScoreUI();

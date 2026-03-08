@@ -158,9 +158,69 @@ function handleNumPad(num) {
         cell.style.color = '';
     }, 250); // Gives WebKit hardware time to paint the pure white frame
     
+    var lastIndex = selectedCellIndex;
     selectedCellIndex = null;
     
+    checkPartialCompletion(lastIndex);
     checkWinCondition();
+}
+
+function checkPartialCompletion(index) {
+    var row = Math.floor(index / 9);
+    var col = index % 9;
+    var blockRow = Math.floor(row / 3) * 3;
+    var blockCol = Math.floor(col / 3) * 3;
+
+    var rowIndices = [];
+    var colIndices = [];
+    var blockIndices = [];
+
+    for (var i = 0; i < 9; i++) {
+        rowIndices.push(row * 9 + i);
+        colIndices.push(i * 9 + col);
+        blockIndices.push((blockRow + Math.floor(i / 3)) * 9 + (blockCol + i % 3));
+    }
+
+    checkGroup(rowIndices, false);
+    checkGroup(colIndices, false);
+    checkGroup(blockIndices, true);
+}
+
+function checkGroup(indices, isBlock) {
+    var full = true;
+    var correct = true;
+    for (var i = 0; i < indices.length; i++) {
+        var idx = indices[i];
+        if (board[idx] === 0) {
+            full = false;
+            break;
+        }
+        if (board[idx] !== solution[idx]) {
+            correct = false;
+        }
+    }
+
+    if (full && correct) {
+        flashGroup(indices, isBlock);
+    }
+}
+
+function flashGroup(indices, isBlock) {
+    for (var i = 0; i < indices.length; i++) {
+        (function(idx) {
+            var cell = document.getElementById('cell-' + idx);
+            if (!cell) return;
+            
+            // Apply a rapid high-contrast flash compatible with E-ink
+            cell.className += ' victory-flash';
+            setTimeout(function() {
+                cell.className = cell.className.replace(' victory-flash', '');
+                if (isBlock) {
+                    cell.className += ' block-completed';
+                }
+            }, 1200);
+        })(indices[i]);
+    }
 }
 
 function checkWinCondition() {

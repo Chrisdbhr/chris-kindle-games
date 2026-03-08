@@ -38,12 +38,24 @@ body {
 }
 
 header {
+    display: table;
+    /* Fallback */
+    display: -webkit-flex;
     display: flex;
-    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    justify-content: space-between; /* Brand Left, Button Right */
+    -webkit-align-items: center;
     align-items: center;
     border-bottom: 2px solid black;
     padding-bottom: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.brand-text {
+    font-size: 1em;
+    color: #666;
+    letter-spacing: 1px;
+    margin-left: 10px;
 }
 
 .lang-selector button {
@@ -69,13 +81,73 @@ main {
     margin-bottom: 15px;
 }
 
+.game-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: table;
+    /* Fallback */
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.game-list li {
+    width: 31%;
+    /* 3 per line with spacing */
+    margin-bottom: 15px;
+    display: inline-block;
+    /* Fallback */
+    vertical-align: top;
+}
+
 .game-card {
-    display: block;
     text-decoration: none;
     color: black;
+    display: block;
+    padding: 10px 5px;
     border: 2px solid black;
-    padding: 15px;
-    background-color: white;
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.game-thumb {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 5px auto;
+    border: 1px solid #000;
+    display: block;
+}
+
+.game-info {
+    display: block;
+}
+
+.game-card h3 {
+    margin: 2px 0;
+    font-size: 14px;
+    /* Smaller for grid */
+    font-weight: bold;
+}
+
+.game-card p {
+    margin: 0;
+    font-size: 11px;
+    /* Smaller for grid */
+    color: #333;
+    line-height: 1.1;
+}
+
+.detail-thumb {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px auto;
+    border: 1px solid #000;
+    display: block;
 }
 
 h1 {
@@ -186,13 +258,16 @@ h3 {
 .mode-selector {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Increased from 10px */
-    margin-bottom: 20px; /* Increased from 10px */
+    gap: 15px;
+    /* Increased from 10px */
+    margin-bottom: 20px;
+    /* Increased from 10px */
 }
 
 .mode-selector .btn {
     margin: 0;
-    padding: 12px 20px; /* Make buttons physically larger for touch */
+    padding: 12px 20px;
+    /* Make buttons physically larger for touch */
 }
 
 /* Memory specific */
@@ -435,14 +510,29 @@ h3 {
 
 /* Animation for victory */
 @keyframes victory-flash {
-    0%   { background-color: white; color: black; }
-    50%  { background-color: black; color: white; }
-    100% { background-color: white; color: black; }
+    0% {
+        background-color: white;
+        color: black;
+    }
+
+    50% {
+        background-color: black;
+        color: white;
+    }
+
+    100% {
+        background-color: white;
+        color: black;
+    }
 }
 
 .victory-flash {
     -webkit-animation: victory-flash 0.4s steps(2, start) 3;
     animation: victory-flash 0.4s steps(2, start) 3;
+}
+
+.block-completed {
+    background-color: #ddd !important;
 }
 
 /* Mobile Responsive Zooming */
@@ -452,21 +542,28 @@ h3 {
         /* Aggressive scaling for mobile */
         transform: scale(1.6);
         transform-origin: top center;
-        margin-bottom: 60vh; /* Create space for the scaled content height */
+        margin-bottom: 60vh;
+        /* Create space for the scaled content height */
     }
-    
+
     header {
         margin-bottom: 20px;
     }
 
     /* Adjust game boards to fit the scaled container on narrow screens */
-    .board, .memory-board, .sudoku-board, .battleship-board, .wordsearch-board, .hangman-kb {
+    .board,
+    .memory-board,
+    .sudoku-board,
+    .battleship-board,
+    .wordsearch-board,
+    .hangman-kb {
         transform: scale(0.85);
         transform-origin: top center;
     }
 
     /* Buttons need to be even larger for big fingers */
-    .btn, .game-card {
+    .btn,
+    .game-card {
         padding: 15px;
         font-size: 16px;
     }

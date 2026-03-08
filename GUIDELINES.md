@@ -1,38 +1,4 @@
-# Limitações Arquiteturais do Kindle (Aviso para IAs)
-
-Este web-app foi construído sob medida para funcionar nativamente no navegador experimental (Webkit muito antigo) de E-readers Kindle (ex: Paperwhite, Kindle 10a geração). 
-
-## 1. Regras Estristas de JavaScript
-O motor do Kindle SOFRE CRASH E IGNORA o arquivo inteiro caso contenha qualquer sintaxe ES6+.
-- **PROIBIDO** usar `let` ou `const` (Use estritamente `var`).
-- **PROIBIDO** usar *Arrow Functions* `() => {}` (Use funções clássicas `function() {}`).
-- **PROIBIDO** usar *Destructuring* ou *Spread/Rest operators* `[...array]`. Substitua por `.slice()`, etc.
-- Trabalhe visualmente o Javascript como se estivesse programando para IE8/IE9 em 2011.
-
-## 2. Regras Estritas de CSS
-A engine é agressiva, lenta em renders e ignora propriedades modernas.
-- **PROIBIDO** usar Variáveis de CSS `:root { --var: color }`. O CSS irá falhar massivamente num Kindle se você tentar interpolar variáveis.
-- As Cores (`white`, `black`, `#ccc`) **DEVEM** ser hard-coded diretamente nas classes!
-- O E-Ink causa *Ghosting* na tela. Para evitar que os blocos fiquem manchados, ativamos `text-rendering: optimizeSpeed;` e desativamos o *anti-aliasing*.
-
-## 3. Comportamentos de Layout da Tela (Collapse Effect)
-Qualquer `div` sem "peso" e corpo real causará colapso de tamanho `height` para zero, ignorando borders.
-- **Solução Padrão**: Nunca deixe uma célula de grid sem tags. Se ela precisa estar visivelmente "vazia", injete o caractere rígido invisível: `<span style="visibility:hidden">X</span>`.
-- O Box-sizing do Webkit legado tem deficiências nas margens. Para Tabelas (Sudoku, TicTacToe), em vez de bordas CSS em toda a grade, o design usa um _Container Preto com Margens em Divs em float_. Ex: um wrapper com fundo preto e `.cell` que possuem margin. A cor do container vazará através do Margin simulando bordas 100% indestrutíveis.
-
-## 4. Caching e Suporte Offline (AppCache)
-O Kindle adora manter assets velhos presos em memória. Originalmente, combatíamos isso desabilitando o cache, mas agora a aplicação tem **Suporte Offline Nativo 100%**.
-- O WebKit antigo do Kindle **não** suporta Service Workers. A única forma de forçar o offline é usando a especificação legada **HTML5 Application Cache** (`manifest.appcache`).
-- O servidor Nginx foi configurado para retornar o MIME type `text/cache-manifest` e guardar arquivos estáticos (HTML, JS, CSS) por **1 ano**.
-- **Para atualizar o app nos dispositivos**: Você *DEVE* incrementar os parâmetros `?v=X` nos imports `<script>` e `<link>` dentro dos HTMLs e *TAMBÉM* atualizar o comentário `# version X` dentro do arquivo `manifest.appcache`. Só a mudança no manifesto obriga o Kindle a refazer o download do jogo inteiro.
-
-## 5. Responsividade (Smartphones vs Kindle)
-O layout base foi feito focando na tela física de ~600px do Paperwhite.
-- Telas de celulares modernos (menores que `500px`) farão o E-reader parecer minúsculo caso não escalonado. Em vez de reescrever dezenas de propriedades, o CSS usa `@media screen and (max-width: 500px)` com a propriedade `transform: scale(1.15)` diretamente na div `.container` para realizar um "zoom digital" nativo, garantindo que o app fique bonito no celular sem quebrar a física do Kindle. Grades específicas (como Memory Hard) sofrem `scale(0.85)` para evitar overflow lateral.
-
----
-
-# 🇬🇧 English: Architecture Limitations & AI Guidelines
+# Architecture Limitations & Guidelines
 
 This web-app is custom-built to run natively on the experimental browser (extremely legacy Webkit) of Kindle E-readers (e.g., Paperwhite, 10th gen).
 
@@ -72,3 +38,10 @@ The app now operates with a fully native Offline Mode tailored for the Kindle's 
 ## 6. Mobile Responsiveness (Smartphones)
 The core layout is hardcoded for ~600px Kindle viewports.
 - On smaller smartphone screens (`<500px`), elements will appear too tiny. Instead of re-flowing the entire layout via specific flex-bases, we apply an overarching `transform: scale(1.15)` digital zoom to the `.container` via `@media` queries. This guarantees a highly readable layout on phones while strictly preserving the integrity of the Kindle layout. Specific bloated grids (like Memory Hard Mode) utilize negative scaling `scale(0.85)` to prevent overflow sideways.
+## 7. Design Visual & Ativos (Thumbnails)
+- **Grid de 3 Colunas**: O menu principal (`index.html`) utiliza um layout de grade (3 itens por linha) inspirado na Kindle Store. Use `display: -webkit-flex` com `width: 31%` para os itens.
+- **Thumbnails Pixel-Art**: Ativos visuais devem ser gerados em Pixel-Art de alto contraste, P&B, e processados via FFmpeg (`scale=60:-1`, `pix_fmt pal8`) para garantir peso mínimo (<3KB) e nitidez em telas E-ink.
+- **Arquitetura de Descrições**: 
+    - No menu, use descrições curtas (`_desc`) para economizar espaço vertical.
+    - Nas telas de detalhes (`setup-screen`), exiba as regras completas (`_rules`) dentro de um box com borda sólida e a thumbnail em destaque (`.detail-thumb`).
+- **Standardization**: Todas as bandeiras e ícones de interface devem ser estritamente retangulares (sem bordas arredondadas) para manter a consistência estética do sistema.

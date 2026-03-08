@@ -10,19 +10,23 @@
     <meta name="keywords" content="Battleship, Batalha Naval, Kindle Game, E-Ink">
     <meta name="author" content="Christopher Ravailhe">
     <title data-i18n="battleship_title">Batalha Naval</title>
-    <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 data-i18n="battleship_title">Batalha Naval</h1>
-            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Menu</a>
+            <div style="display: flex; align-items: baseline;">
+                <h1 data-i18n="battleship_title">Batalha Naval</h1>
+                <span class="brand-text">chrisjogos.com</span>
+            </div>
+            <a href="index.html" class="btn" data-i18n="back_menu">Menu</a>
         </header>
 
         <main>
             <!-- SETUP SCREEN: Select Mode -->
             <div id="setup-screen" style="text-align: center; margin-top: 20px;">
-                <h2 data-i18n="select_game">Selecione o Modo</h2>
+                <img src="img/thumb_battleship.png" class="detail-thumb" alt="">
+                <p data-i18n="battleship_rules" style="margin: 15px 10px; font-size: 16px; border: 1px solid black; padding: 10px;"></p>
                 <div class="mode-selector" style="margin: 20px 0;">
                     <button class="btn" id="btn-pve" data-i18n="mode_pve" onclick="selectMode('pve')">Jogador vs IA</button>
                     <button class="btn" id="btn-pvp" data-i18n="mode_pvp" onclick="selectMode('pvp')">Jogador vs Jogador</button>

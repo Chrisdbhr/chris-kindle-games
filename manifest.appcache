@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 1.1 (Mobile & SEO Update)
+# version 1.8 (Button Alignment Update)
 
 CACHE:
 # HTML
@@ -25,12 +25,24 @@ js/wordsearch.js
 js/hangman.js
 
 # JSON Locales
-locales/pt.json
 locales/en.json
+locales/pt.json
+locales/es.json
+locales/fr.json
+locales/de.json
 
 # Images
 img/br.png
 img/us.png
+img/es.png
+img/fr.png
+img/de.png
+img/thumb_tictactoe.png
+img/thumb_memory.png
+img/thumb_sudoku.png
+img/thumb_battleship.png
+img/thumb_wordsearch.png
+img/thumb_hangman.png
 
 NETWORK:
 *

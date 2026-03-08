@@ -23,7 +23,7 @@
         <!-- Cancel button removed -->
     </div>
     
-    <script src="js/lang.js?v=6"></script>
+    <script src="js/lang.js?v=10"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var container = document.getElementById('lang-page-list');
@@ -44,6 +44,8 @@
                         img.src = localeInfo.icon;
                         img.style.verticalAlign = 'middle';
                         img.style.marginRight = '10px';
+                        img.style.width = '40px';
+                        img.style.height = 'auto';
                         // Monocromatic for E-ink
                         img.style.filter = 'grayscale(100%)';
                         img.style.WebkitFilter = 'grayscale(100%)';

@@ -10,18 +10,22 @@
     <meta name="keywords" content="Hangman, Jogo da Forca, Kindle Game, E-Ink">
     <meta name="author" content="Christopher Ravailhe">
     <title data-i18n="hangman_title">Jogo da Forca</title>
-    <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 data-i18n="hangman_title">Jogo da Forca</h1>
-            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Voltar ao Menu</a>
+            <div style="display: flex; align-items: baseline;">
+                <h1 data-i18n="hangman_title">Jogo da Forca</h1>
+                <span class="brand-text">chrisjogos.com</span>
+            </div>
+            <a href="index.html" class="btn" data-i18n="back_menu">Voltar ao Menu</a>
         </header>
 
         <main>
             <div id="setup-screen" style="text-align: center; margin-top: 20px;">
-                <h2 data-i18n="select_game">Selecione a Dificuldade</h2>
+                <img src="img/thumb_hangman.png" class="detail-thumb" alt="">
+                <p data-i18n="hangman_rules" style="margin: 15px 10px; font-size: 16px; border: 1px solid black; padding: 10px;"></p>
                 <div class="mode-selector" style="margin: 20px 0;">
                     <button class="btn" id="btn-hm-easy" data-i18n="diff_easy" onclick="setDiffAndUI('easy')">Fácil</button>
                     <button class="btn" id="btn-hm-med" data-i18n="diff_med" onclick="setDiffAndUI('medium')">Médio</button>

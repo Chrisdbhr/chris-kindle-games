@@ -10,19 +10,23 @@
     <meta name="keywords" content="Tic-Tac-Toe, Jogo da Velha, Kindle Game, E-Ink">
     <meta name="author" content="Christopher Ravailhe">
     <title data-i18n="tictactoe_title">Jogo da Velha</title>
-    <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 data-i18n="tictactoe_title">Jogo da Velha</h1>
-            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Voltar ao Menu</a>
+            <div style="display: flex; align-items: baseline;">
+                <h1 data-i18n="tictactoe_title">Jogo da Velha</h1>
+                <span class="brand-text">chrisjogos.com</span>
+            </div>
+            <a href="index.html" class="btn" data-i18n="back_menu">Voltar ao Menu</a>
         </header>
 
         <main>
 
-            <div id="setup-screen" style="text-align: center; margin-top: 20px;">
-                <h2 data-i18n="select_game">Selecione o Modo</h2>
+            <div id="setup-screen" style="text-align: center;">
+            <img src="img/thumb_tictactoe.png" class="detail-thumb" alt="">
+                <p data-i18n="tictactoe_rules" style="margin: 15px 10px; font-size: 16px; border: 1px solid black; padding: 10px;"></p>
                 
                 <div class="mode-selector" style="margin: 20px 0;">
                     <button class="btn" id="btn-pvp" data-i18n="mode_pvp" onclick="setMode('pvp')">Jogador vs Jogador</button>
@@ -40,7 +44,7 @@
 
                 <p id="diff-desc-text" style="margin-bottom: 30px; font-style: italic;"></p>
                 
-                <button class="btn" data-i18n="btn_start" onclick="startGame()" style="font-size: 20px; padding: 10px 30px;">Iniciar</button>
+                <button class="btn" data-i18n="btn_start" onclick="startGame()" style="font-size: 20px; padding: 10px 30px; display: inline-block; margin: 0 auto;">Iniciar</button>
             </div>
 
             <div id="game-screen" style="display: none;">

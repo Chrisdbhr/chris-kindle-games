@@ -3,14 +3,17 @@ var currentLang = 'pt';
 
 var availableLocales = {
     'pt': { name: 'Português', icon: 'img/br.png' },
-    'en': { name: 'English', icon: 'img/us.png' }
+    'en': { name: 'English', icon: 'img/us.png' },
+    'es': { name: 'Español', icon: 'img/es.png' },
+    'fr': { name: 'Français', icon: 'img/fr.png' },
+    'de': { name: 'Deutsch', icon: 'img/de.png' }
 };
 
 function renderLangButtons() {
     var btnSwitch = document.getElementById('btn-lang-selector');
     if (btnSwitch) {
         var localeInfo = availableLocales[currentLang];
-        btnSwitch.innerHTML = '<img src="' + localeInfo.icon + '" style="vertical-align:middle; margin-right:5px; filter:grayscale(100%); -webkit-filter:grayscale(100%);"> ' + currentLang.toUpperCase();
+        btnSwitch.innerHTML = '<img src="' + localeInfo.icon + '" style="vertical-align:middle; margin-right:5px; width:30px; height:auto; filter:grayscale(100%); -webkit-filter:grayscale(100%);"> ' + currentLang.toUpperCase();
     }
 }
 
