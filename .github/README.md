@@ -2,6 +2,12 @@
 
 A collection of web-based games specifically designed and optimized for the experimental browser found on legacy Kindle E-readers (e.g., Kindle Paperwhite 10th Gen).
 
+<p align="center">
+  <a href="https://kindle.chrisjogos.com">
+    <img src="https://img.shields.io/badge/PLAY%20NOW-kindle.chrisjogos.com-black?style=for-the-badge" alt="Play Now">
+  </a>
+</p>
+
 ## Included Games
 
 - Battleship
