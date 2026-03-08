@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title data-i18n="hangman_title">Jogo da Forca</title>
+    <link rel="stylesheet" href="css/style.css?v=7">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="hangman_title">Jogo da Forca</h1>
+            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Voltar ao Menu</a>
+        </header>
+
+        <main>
+            <div id="setup-screen" style="text-align: center; margin-top: 20px;">
+                <h2 data-i18n="select_game">Selecione a Dificuldade</h2>
+                <div class="mode-selector" style="margin: 20px 0;">
+                    <button class="btn" id="btn-hm-easy" data-i18n="diff_easy" onclick="setDiffAndUI('easy')">Fácil</button>
+                    <button class="btn" id="btn-hm-med" data-i18n="diff_med" onclick="setDiffAndUI('medium')">Médio</button>
+                    <button class="btn" id="btn-hm-hard" data-i18n="diff_hard" onclick="setDiffAndUI('hard')">Difícil</button>
+                </div>
+                <p id="diff-desc-text" style="margin-bottom: 30px; font-style: italic;"></p>
+                <button class="btn" data-i18n="btn_start" onclick="startGame()" style="font-size: 20px; padding: 10px 30px;">Iniciar</button>
+            </div>
+
+            <div id="game-screen" style="display: none;">
+                <div class="status-message" id="status-message"></div>
+
+                <div class="hangman-drawing" id="hangman-drawing">
+                </div>
+
+                <div class="hangman-word" id="hangman-word">
+                </div>
+
+                <div class="hangman-kb" id="hangman-kb">
+                    <!-- Buttons injected by JS -->
+                </div>
+                
+                <div class="controls" style="margin-top:20px;">
+                    <button class="btn" id="btn-reset-game" data-i18n="play_again" onclick="backToMenu()">Jogar Novamente</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/lang.js?v=7"></script>
+    <script src="js/hangman.js?v=7"></script>
+</body>
+</html>

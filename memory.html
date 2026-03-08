@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title data-i18n="memory_title">Jogo da Memória</title>
+    <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="memory_title">Jogo da Memória</h1>
+            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Voltar ao Menu</a>
+        </header>
+
+        <main>
+
+            <div id="setup-screen" style="text-align: center; margin-top: 20px;">
+                <h2 data-i18n="select_game">Selecione a Dificuldade</h2>
+                <div class="mode-selector" style="margin: 20px 0;">
+                    <button class="btn" id="btn-mem-easy" data-i18n="diff_easy" onclick="setDiffAndUI('easy')">Fácil</button>
+                    <button class="btn" id="btn-mem-med" data-i18n="diff_med" onclick="setDiffAndUI('medium')">Médio</button>
+                    <button class="btn" id="btn-mem-hard" data-i18n="diff_hard" onclick="setDiffAndUI('hard')">Difícil</button>
+                </div>
+                <p id="diff-desc-text" style="margin-bottom: 30px; font-style: italic;"></p>
+                <button class="btn" data-i18n="btn_start" onclick="startGame()" style="font-size: 20px; padding: 10px 30px;">Iniciar</button>
+            </div>
+
+            <div id="game-screen" style="display: none;">
+                <div class="scores" style="justify-content: center;">
+                    <div><span data-i18n="moves">Movimentos: </span><span id="score-moves">0</span></div>
+                </div>
+
+                <div class="status-message" id="status-message"></div>
+
+                <div class="memory-board" id="memory-board">
+                    <!-- Cards will be generated here -->
+                </div>
+
+                <div class="controls">
+                    <button class="btn" id="btn-reset-game" data-i18n="play_again" onclick="backToMenu()">Jogar Novamente</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/lang.js?v=12"></script>
+    <script src="js/memory.js?v=12"></script>
+</body>
+</html>

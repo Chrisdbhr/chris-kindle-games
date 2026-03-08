@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title data-i18n="battleship_title">Batalha Naval</title>
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="battleship_title">Batalha Naval</h1>
+            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Menu</a>
+        </header>
+
+        <main>
+            <!-- SETUP SCREEN: Select Mode -->
+            <div id="setup-screen" style="text-align: center; margin-top: 20px;">
+                <h2 data-i18n="select_game">Selecione o Modo</h2>
+                <div class="mode-selector" style="margin: 20px 0;">
+                    <button class="btn" id="btn-pve" data-i18n="mode_pve" onclick="selectMode('pve')">Jogador vs IA</button>
+                    <button class="btn" id="btn-pvp" data-i18n="mode_pvp" onclick="selectMode('pvp')">Jogador vs Jogador</button>
+                </div>
+                
+                <p id="diff-desc-text" style="margin-bottom: 30px; font-style: italic;"></p>
+
+                <button class="btn" data-i18n="btn_start" onclick="startSetup()" style="font-size: 20px; padding: 10px 30px; display:none;" id="btn-start-mode">Iniciar</button>
+            </div>
+
+            <!-- PASS DEVICE SCREEN -->
+            <div id="pass-screen" style="display: none; text-align: center; margin-top: 50px;">
+                <h2 id="pass-title">Pass!</h2>
+                <p data-i18n="pass_device" style="margin: 20px 0;">Passe o dispositivo.</p>
+                <button class="btn" data-i18n="btn_ready" onclick="acknowledgePass()" style="font-size: 20px; padding: 10px 30px;">Estou Pronto</button>
+            </div>
+
+            <!-- FLEET PLACEMENT SCREEN -->
+            <div id="fleet-screen" style="display: none; text-align: center;">
+                <h2 id="fleet-title">Frota</h2>
+                <div class="battleship-board" id="fleet-board" style="margin-bottom: 20px;">
+                    <!-- Board -->
+                </div>
+                <div class="controls">
+                    <button class="btn" data-i18n="shuffle_fleet" onclick="shuffleCurrentFleet()">Embaralhar</button>
+                    <button class="btn" data-i18n="confirm_fleet" onclick="confirmFleet()" style="background: black; color: white;">Confirmar</button>
+                </div>
+            </div>
+
+            <!-- PLAYING SCREEN -->
+            <div id="game-screen" style="display: none; text-align: center;">
+                <div class="status-message" id="status-message" style="margin-bottom: 5px;"></div>
+                
+                <h3 data-i18n="enemy_fleet" style="margin: 5px 0 0 0; font-size: 16px;">Área de Ataque</h3>
+                <div class="battleship-board" id="attack-board" style="margin-top: 0;">
+                    <!-- Top Board (Enemy) -->
+                </div>
+
+                <h3 id="defense-title" style="margin: 15px 0 0 0; font-size: 16px;">Sua Frota</h3>
+                <div class="battleship-board" id="defense-board" style="margin-top: 0;">
+                    <!-- Bottom Board (Self) -->
+                </div>
+
+                <div class="controls" id="post-game-controls" style="display: none; margin-top: 20px;">
+                    <button class="btn" data-i18n="play_again" onclick="resetToMenu()">Jogar Novamente</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/lang.js?v=6"></script>
+    <script src="js/battleship.js?v=6"></script>
+</body>
+</html>

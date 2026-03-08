@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title data-i18n="tictactoe_title">Jogo da Velha</title>
+    <link rel="stylesheet" href="css/style.css?v=10">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="tictactoe_title">Jogo da Velha</h1>
+            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Voltar ao Menu</a>
+        </header>
+
+        <main>
+
+            <div id="setup-screen" style="text-align: center; margin-top: 20px;">
+                <h2 data-i18n="select_game">Selecione o Modo</h2>
+                
+                <div class="mode-selector" style="margin: 20px 0;">
+                    <button class="btn" id="btn-pvp" data-i18n="mode_pvp" onclick="setMode('pvp')">Jogador vs Jogador</button>
+                    <button class="btn" id="btn-pve" data-i18n="mode_pve" onclick="setMode('pve')">Jogador vs IA</button>
+                </div>
+                
+                <div id="difficulty-selector" style="display: none;">
+                    <h3 data-i18n="select_diff_ai" style="margin-bottom: 10px; font-size: 18px;">Dificuldade da IA:</h3>
+                    <div class="mode-selector">
+                        <button class="btn" id="btn-tt-easy" data-i18n="diff_easy" onclick="setDifficulty('easy')">Fácil</button>
+                        <button class="btn" id="btn-tt-med" data-i18n="diff_med" onclick="setDifficulty('medium')">Médio</button>
+                        <button class="btn" id="btn-tt-hard" data-i18n="diff_hard" onclick="setDifficulty('hard')">Difícil</button>
+                    </div>
+                </div>
+
+                <p id="diff-desc-text" style="margin-bottom: 30px; font-style: italic;"></p>
+                
+                <button class="btn" data-i18n="btn_start" onclick="startGame()" style="font-size: 20px; padding: 10px 30px;">Iniciar</button>
+            </div>
+
+            <div id="game-screen" style="display: none;">
+
+            <div class="scores">
+                <div><span id="label-score-x" data-i18n="score_p1">Jogador 1 (X): </span><span id="score-x">0</span></div>
+                <div><span data-i18n="score_ties">Empates: </span><span id="score-ties">0</span></div>
+                <div><span id="label-score-o" data-i18n="score_p2">Jogador 2 (O): </span><span id="score-o">0</span></div>
+            </div>
+
+            <div class="status-message" id="status-message"></div>
+
+            <div class="board" id="board">
+                <!-- Cells will be generated here -->
+            </div>
+
+            <div class="controls">
+                <button class="btn" id="btn-reset-game" data-i18n="play_again" onclick="resetGame()" style="display: block; margin: 10px auto; font-size: 18px; padding: 10px 20px;">Jogar Novamente</button>
+                <button class="btn" id="btn-reset-score" data-i18n="reset_score" onclick="handleResetScore()">Zerar Placar</button>
+                <button class="btn" id="btn-back-menu" data-i18n="back_menu" onclick="backToMenu()">Voltar ao Menu Principal</button>
+            </div>
+            
+            </div>
+
+        <div id="reset-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <p data-i18n="reset_confirm">Tem certeza que deseja zerar o placar?</p>
+                <button class="btn" onclick="confirmReset(true)" data-i18n="btn_yes">Sim</button>
+                <button class="btn" onclick="confirmReset(false)" data-i18n="btn_no">Não</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/lang.js?v=10"></script>
+    <script src="js/tictactoe.js?v=10"></script>
+</body>
+</html>

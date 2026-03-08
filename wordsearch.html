@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title data-i18n="wordsearch_title">Caça-Palavras</title>
+    <link rel="stylesheet" href="css/style.css?v=9">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="wordsearch_title">Caça-Palavras</h1>
+            <a href="index.html" class="btn" data-i18n="back_menu" style="margin-left: auto;">Menu</a>
+        </header>
+
+        <main>
+            <div id="setup-screen" style="text-align: center; margin-top: 20px;">
+                <h2 data-i18n="select_game">Selecione a Dificuldade</h2>
+                <div class="mode-selector" style="margin: 20px 0;">
+                    <button class="btn" id="btn-ws-easy" data-i18n="diff_easy" onclick="setDiffAndUI('easy')">Fácil</button>
+                    <button class="btn" id="btn-ws-med" data-i18n="diff_med" onclick="setDiffAndUI('medium')">Médio</button>
+                    <button class="btn" id="btn-ws-hard" data-i18n="diff_hard" onclick="setDiffAndUI('hard')">Difícil</button>
+                </div>
+                <p id="diff-desc-text" style="margin-bottom: 30px; font-style: italic;"></p>
+                <button class="btn" data-i18n="btn_start" onclick="startGame()" style="font-size: 20px; padding: 10px 30px;">Iniciar</button>
+            </div>
+
+            <div id="game-screen" style="display: none;">
+                <div class="status-message" id="status-message"></div>
+
+                <div class="wordsearch-board" id="wordsearch-board">
+                    <!-- Board goes here -->
+                </div>
+
+                <div class="wordsearch-list" id="wordsearch-list">
+                    <!-- Words go here -->
+                </div>
+                
+                <div class="controls" style="margin-top:20px;">
+                    <button class="btn" data-i18n="play_again" onclick="backToMenu()">Jogar Novamente</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/lang.js?v=9"></script>
+    <script src="js/wordsearch.js?v=9"></script>
+</body>
+</html>

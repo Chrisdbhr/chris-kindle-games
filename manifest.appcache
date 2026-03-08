@@ -1,0 +1,36 @@
+CACHE MANIFEST
+# version 1.0 (Cache Bust)
+
+CACHE:
+# HTML
+index.html
+lang.html
+tictactoe.html
+memory.html
+sudoku.html
+battleship.html
+wordsearch.html
+hangman.html
+
+# CSS
+css/style.css
+
+# JS
+js/lang.js
+js/tictactoe.js
+js/memory.js
+js/sudoku.js
+js/battleship.js
+js/wordsearch.js
+js/hangman.js
+
+# JSON Locales
+locales/pt.json
+locales/en.json
+
+# Images
+img/br.png
+img/us.png
+
+NETWORK:
+*

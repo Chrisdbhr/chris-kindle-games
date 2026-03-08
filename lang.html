@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cache busting -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Idioma / Language</title>
+    <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+    <div class="container">
+        <!-- Header removed as requested -->
+
+        <main id="lang-page-list" style="margin-top: 20px;">
+            <!-- Rendered by lang.js -->
+        </main>
+        
+        <!-- Cancel button removed -->
+    </div>
+    
+    <script src="js/lang.js?v=6"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var container = document.getElementById('lang-page-list');
+            
+            for (var key in availableLocales) {
+                if (availableLocales.hasOwnProperty(key)) {
+                    (function(k) {
+                        var localeInfo = availableLocales[k];
+                        var btn = document.createElement('button');
+                        btn.className = 'btn';
+                        btn.style.display = 'block';
+                        btn.style.width = '100%';
+                        btn.style.marginBottom = '15px';
+                        btn.style.fontSize = '18px';
+                        btn.style.padding = '15px';
+                        
+                        var img = document.createElement('img');
+                        img.src = localeInfo.icon;
+                        img.style.verticalAlign = 'middle';
+                        img.style.marginRight = '10px';
+                        // Monocromatic for E-ink
+                        img.style.filter = 'grayscale(100%)';
+                        img.style.WebkitFilter = 'grayscale(100%)';
+                        
+                        btn.appendChild(img);
+                        btn.appendChild(document.createTextNode(localeInfo.name));
+                        
+                        btn.onclick = function() {
+                            setLang(k);
+                            window.location.href = 'index.html'; // Redireciona de volta após salvar
+                        };
+                        
+                        if (k === currentLang) {
+                            btn.style.backgroundColor = 'black';
+                            btn.style.color = 'white';
+                        }
+                        
+                        container.appendChild(btn);
+                    })(key);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
