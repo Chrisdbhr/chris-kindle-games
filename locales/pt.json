@@ -65,5 +65,18 @@
     "confirm_fleet": "Confirmar Frota",
     "words_short": ["SOL", "LUA", "LUZ", "DIA", "GATO", "RATO", "SAPO", "PATO", "URSO", "LEAO", "LOBO", "TELA", "JOGO", "BOLA", "BOTA", "MESA", "FOGO", "CEU", "MAR", "RIO", "OVO", "PAO", "COR", "VOZ", "BEM", "MAL", "PAZ", "CRUZ", "OURO", "CASA", "CAFE", "VALE", "BELO", "COPO", "BOCA", "VILA", "FOTO", "ROSA", "ALVO", "ARCO", "ARTE", "BALE", "BOLO", "BONO", "CABO", "CAJU", "CAMA", "CENA", "COLA", "DADO", "DOCE", "DUAS", "EIXO"],
     "words_medium": ["BRASIL", "ANIMAL", "VERAO", "INVERNO", "FOLHAS", "ARVORE", "PASSARO", "PLANTA", "AMIGOS", "INIMIGO", "MUSICA", "CADERNO", "CANETA", "TECLADO", "BATERIA", "LEITURA", "ESPELHO", "CADEIRA", "JANELA", "CELULAR", "RELOGIO", "SAPATO", "KINDLE", "LIVRO", "PAGINA", "OCEANO", "VIAGEM", "ABACAXI", "ABELHA", "ABRIGO", "ACORDO", "ADULTO", "AFOGAR", "AGENTE", "AGOSTO", "ALAGAR", "ALEGRE", "ALFACE", "ALGUEM", "ALTURA", "ALUNO", "AMARELO", "AMPARO", "ANDAR", "ANEIS", "ANTENA", "ANTIGO"],
-    "words_long": ["COMPUTADOR", "ELETRONICA", "TELEVISAO", "BORBOLETA", "BIBLIOTECA", "FOTOGRAFIA", "MATEMATICA", "CHOCOLATE", "PASSARINHO", "TARTARUGA", "DINOSSAURO", "ESTUDANTES", "BRINQUEDOS", "FELICIDADE", "NATUREZA", "CACHORRO", "MONTAGEM", "PROGRAMAVEL", "HISTORIA", "ASTRONAUTA", "PIRAMIDE", "UNIVERSO", "TELEFONE", "MISTERIO", "ELEFANTE", "MONTANHA", "ARQUITETURA", "TECNOLOGIA", "AEROPORTO", "FLORESTA", "DIAMANTE", "MARACUJA", "MELANCIA", "ACADEMIA", "ACIDENTE", "AGRICOLA", "ALIMENTO", "ALQUIMIA", "ALTITUDE", "AMBULANCIA", "AMBIENTE", "AMIZADES", "ANATOMIA"]
+    "words_long": ["COMPUTADOR", "ELETRONICA", "TELEVISAO", "BORBOLETA", "BIBLIOTECA", "FOTOGRAFIA", "MATEMATICA", "CHOCOLATE", "PASSARINHO", "TARTARUGA", "DINOSSAURO", "ESTUDANTES", "BRINQUEDOS", "FELICIDADE", "NATUREZA", "CACHORRO", "MONTAGEM", "PROGRAMAVEL", "HISTORIA", "ASTRONAUTA", "PIRAMIDE", "UNIVERSO", "TELEFONE", "MISTERIO", "ELEFANTE", "MONTANHA", "ARQUITETURA", "TECNOLOGIA", "AEROPORTO", "FLORESTA", "DIAMANTE", "MARACUJA", "MELANCIA", "ACADEMIA", "ACIDENTE", "AGRICOLA", "ALIMENTO", "ALQUIMIA", "ALTITUDE", "AMBULANCIA", "AMBIENTE", "AMIZADES", "ANATOMIA"],
+    "connect4_title": "Ligue 4",
+    "connect4_desc": "Alinhe 4 peças para vencer.",
+    "connect4_rules": "O clássico jogo de estratégia. Deixe cair suas fichas na grade e tente formar uma linha horizontal, vertical ou diagonal com 4 peças antes do seu adversário.",
+    "score_p1_c4": "Jogador 1 (Preto): ",
+    "score_p2_c4": "Jogador 2 (Branco): ",
+    "score_cpu_c4": "IA (Branco): ",
+    "turn_p1": "Vez do Jogador 1",
+    "turn_p2": "Vez do Jogador 2",
+    "cpu_turn": "IA pensando...",
+    "p1_wins": "Jogador 1 Venceu!",
+    "p2_wins": "Jogador 2 Venceu!",
+    "cpu_wins": "IA Venceu!",
+    "status_draw": "Empate!"
 }

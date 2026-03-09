@@ -65,5 +65,18 @@
     "confirm_fleet": "Confirm Fleet",
     "words_short": ["SUN", "MOON", "STAR", "SKY", "DAY", "DOG", "CAT", "RAT", "PIG", "COW", "LION", "BEAR", "WOLF", "GAME", "PLAY", "BALL", "SHOE", "FISH", "BIRD", "FIRE", "ICE", "SEA", "BOX", "CAR", "BUS", "VOICE", "GOLD", "BOOK", "PAGE", "TREE", "WOOD", "RAIN", "SNOW", "WIND", "ROCK", "SAND", "HILL", "ROAD", "SHIP", "BOAT", "BIKE", "TAXI", "LAMP", "DOOR", "RING", "MASK", "FLAG", "KING", "WIND"],
     "words_medium": ["SUMMER", "WINTER", "SPRING", "AUTUMN", "ANIMAL", "FOREST", "NATURE", "FLOWER", "GARDEN", "GUITAR", "MUSIC", "PICTURE", "CAMERA", "KINDLE", "BATTERY", "SCREEN", "WINDOW", "MIRROR", "PENCIL", "TRAVEL", "OCEAN", "FRIEND", "COFFEE", "ORANGE", "BANANA", "POTATO", "TOMATO", "CHURCH", "SCHOOL", "MARKET", "BRIDGE", "STREET", "PLANET", "SILVER", "YELLOW", "PURPLE", "MONKEY", "RABBIT", "TURTLE", "BOTTLE", "HAMMER", "POCKET", "BUTTON", "JACKET", "STAIRS"],
-    "words_long": ["COMPUTER", "ELECTRONIC", "TELEVISION", "BUTTERFLY", "MOTORCYCLE", "LIBRARY", "PHOTOGRAPH", "MATHEMATICS", "CHOCOLATE", "HELICOPTER", "STRAWBERRY", "DICTIONARY", "WATERMELON", "ASTRONAUT", "INTERNET", "KEYBOARD", "ASSEMBLY", "PROGRAMMING", "HISTORY", "PYRAMID", "UNIVERSE", "TELEPHONE", "MYSTERY", "ELEPHANT", "MOUNTAIN", "ARCHITECTURE", "PHOTOGRAPHY", "TECHNOLOGY", "AIRPORT", "DIAMOND", "DINOSAUR", "PASSIONFRUIT", "STUDENT", "CHAMPIONSHIP", "CALENDAR", "VOLCANO", "LIGHTNING", "AMBULANCE", "FESTIVAL", "CELEBRATION", "EXPERIENCE", "ADVENTURE", "RESTAURANT", "NEWSPAPER", "UMLAUT", "SQUIRREL"]
+    "words_long": ["COMPUTER", "ELECTRONIC", "TELEVISION", "BUTTERFLY", "MOTORCYCLE", "LIBRARY", "PHOTOGRAPH", "MATHEMATICS", "CHOCOLATE", "HELICOPTER", "STRAWBERRY", "DICTIONARY", "WATERMELON", "ASTRONAUT", "INTERNET", "KEYBOARD", "ASSEMBLY", "PROGRAMMING", "HISTORY", "PYRAMID", "UNIVERSE", "TELEPHONE", "MYSTERY", "ELEPHANT", "MOUNTAIN", "ARCHITECTURE", "PHOTOGRAPHY", "TECHNOLOGY", "AIRPORT", "DIAMOND", "DINOSAUR", "PASSIONFRUIT", "STUDENT", "CHAMPIONSHIP", "CALENDAR", "VOLCANO", "LIGHTNING", "AMBULANCE", "FESTIVAL", "CELEBRATION", "EXPERIENCE", "ADVENTURE", "RESTAURANT", "NEWSPAPER", "UMLAUT", "SQUIRREL"],
+    "connect4_title": "Connect 4",
+    "connect4_desc": "Line up 4 pieces to win.",
+    "connect4_rules": "The classic strategy game. Drop your tokens into the grid and try to form a horizontal, vertical or diagonal line with 4 pieces before your opponent.",
+    "score_p1_c4": "Player 1 (Black): ",
+    "score_p2_c4": "Player 2 (White): ",
+    "score_cpu_c4": "AI (White): ",
+    "turn_p1": "Player 1 Turn",
+    "turn_p2": "Player 2 Turn",
+    "cpu_turn": "AI is thinking...",
+    "p1_wins": "Player 1 Wins!",
+    "p2_wins": "Player 2 Wins!",
+    "cpu_wins": "AI Wins!",
+    "status_draw": "Draw!"
 }

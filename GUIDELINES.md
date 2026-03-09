@@ -8,6 +8,7 @@ The Kindle browser engine will CRASH and completely IGNORE the JS file if it con
 - **FORBIDDEN**: *Arrow Functions* `() => {}` (Use classic `function() {}`).
 - **FORBIDDEN**: *Destructuring* or *Spread/Rest operators* `[...array]`. Substitute with `.slice()`, etc.
 - Always write Javascript as if you were programming for IE8/IE9 in 2011.
+- All games (Tic-Tac-Toe, Sudoku, Memory, Battleship, Word Search, Hangman, Connect 4) MUST follow these rules.
 
 ## 2. Strict CSS Rules
 The engine is aggressive, slow to render, and ignores most modern properties.

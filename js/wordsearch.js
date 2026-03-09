@@ -98,7 +98,9 @@ function resetGame() {
     firstClick = null;
     placedWordsCoords = {};
     gameActive = true;
-    statusMessage.innerText = '';
+    
+    // Initial instruction message
+    statusMessage.innerText = 'Escolha a primeira letra da palavra encontrada';
     
     generateGrid();
     renderBoard();
@@ -180,8 +182,11 @@ function renderList() {
 
 function renderBoard() {
     boardElement.innerHTML = '';
-    // CSS uses width: 30px + margin: 0 2px 2px 0 = 32px
-    boardElement.style.width = (boardSize * 32) + 'px';
+    // CSS uses width: 30px + margin: 0 1px 1px 0 = 31px
+    // Board padding left 1px + borders
+    // Exact width should be (boardSize * 31) + 1px for the padding.
+    // Adding minimal leeway to prevent sub-pixel rounding drops.
+    boardElement.style.width = ((boardSize * 31) + 1) + 'px';
     
     var totalCells = boardSize * boardSize;
     for (var i = 0; i < totalCells; i++) {
@@ -207,12 +212,27 @@ function handleCellClick(index) {
     if (!gameActive) return;
     
     var cell = document.getElementById('ws-cell-' + index);
-    if (cell.className.indexOf('found') > -1) return;
     
+    // We REMOVE the check `if (cell.className.indexOf('found') > -1) return;` 
+    // to allow overlapping words! A cell that is part of a found word 
+    // CAN be used to find a crossing word.
+    
+    // However, we must temporarily highlight it if it's the first click.
+    var wasFound = cell.className.indexOf('found') > -1;
+
     if (firstClick === null) {
         firstClick = index;
         cell.style.backgroundColor = 'black';
         cell.style.color = 'white';
+        statusMessage.innerText = 'Agora selecione a ultima letra da palavra encontrada';
+        
+        statusMessage.style.backgroundColor = 'black';
+        statusMessage.style.color = 'white';
+        setTimeout(function() {
+            statusMessage.style.backgroundColor = 'white';
+            statusMessage.style.color = 'black';
+        }, 200);
+
     } else {
         var matchedWord = null;
         var secondClick = index;
@@ -247,20 +267,91 @@ function handleCellClick(index) {
             
             if (foundWordsCount === wordsToFind.length) {
                 gameActive = false;
+                statusMessage.style.backgroundColor = '';
+                statusMessage.style.color = '';
                 statusMessage.innerText = typeof getTranslation !== 'undefined' ? getTranslation('status_win') : 'You Won!';
+                triggerWinAnimation();
+            } else {
+                statusMessage.innerText = matchedWord + ' encontrada!';
+                statusMessage.style.backgroundColor = 'black';
+                statusMessage.style.color = 'white';
+                setTimeout(function() {
+                    statusMessage.style.backgroundColor = 'white';
+                    statusMessage.style.color = 'black';
+                    if (gameActive) {
+                        statusMessage.innerText = 'Escolha a primeira letra da palavra encontrada';
+                    }
+                }, 1500);
             }
         } else {
-            // E-ink blink to clear selection
-            firstCell.style.backgroundColor = 'white';
-            firstCell.style.color = 'white';
-            setTimeout(function() {
+            // Wrong selection - revert first cell if it wasn't already part of a found word
+            if (wasFound) {
+                // If the first cell *was* originally found, returning it to '' will strip inline styles 
+                // and the CSS `.wordsearch-cell.found` will take over again, making it black/white.
                 firstCell.style.backgroundColor = '';
                 firstCell.style.color = '';
-            }, 200);
+            } else {
+                firstCell.style.backgroundColor = 'white';
+                firstCell.style.color = 'white';
+                setTimeout(function() {
+                    firstCell.style.backgroundColor = '';
+                    firstCell.style.color = '';
+                }, 200);
+            }
+            
+            statusMessage.innerText = 'Você deve selecionar a primeira e a ultima letra da palavra encontrada';
+            statusMessage.style.backgroundColor = 'black';
+            statusMessage.style.color = 'white';
+            setTimeout(function() {
+                statusMessage.style.backgroundColor = 'white';
+                statusMessage.style.color = 'black';
+            }, 600);
         }
         
         firstClick = null;
     }
+}
+
+function triggerWinAnimation() {
+    var totalCells = boardSize * boardSize;
+    var nonFoundIndices = [];
+    
+    for (var i = 0; i < totalCells; i++) {
+        var cell = document.getElementById('ws-cell-' + i);
+        if (cell && cell.className.indexOf('found') === -1) {
+            nonFoundIndices.push(i);
+        }
+    }
+    
+    // Shuffle the nonFoundIndices array
+    for (var j = nonFoundIndices.length - 1; j > 0; j--) {
+        var rand = Math.floor(Math.random() * (j + 1));
+        var temp = nonFoundIndices[j];
+        nonFoundIndices[j] = nonFoundIndices[rand];
+        nonFoundIndices[rand] = temp;
+    }
+    
+    var idx = 0;
+    var timer = setInterval(function() {
+        if (idx >= nonFoundIndices.length) {
+            clearInterval(timer);
+            return;
+        }
+        (function(targetIdx) {
+            var targetCell = document.getElementById('ws-cell-' + nonFoundIndices[targetIdx]);
+            if (targetCell) {
+                // Step A: Turn gray
+                targetCell.style.color = '#ccc';
+                
+                // Step B: Clear after 500ms
+                setTimeout(function() {
+                    targetCell.innerText = '';
+                    targetCell.style.color = '';
+                }, 500);
+            }
+        })(idx);
+        idx++;
+    }, 1000); // 1 second interval between letters for E-ink friendliness
 }
 
 document.addEventListener('DOMContentLoaded', initGame);

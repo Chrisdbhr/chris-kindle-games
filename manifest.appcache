@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 1.12 (Header Layout 2.0)
+# version 1.18 (Connect 4 polished)
 
 CACHE:
 # HTML
@@ -11,6 +11,7 @@ sudoku.html
 battleship.html
 wordsearch.html
 hangman.html
+connect4.html
 
 # CSS
 css/style.css
@@ -23,6 +24,7 @@ js/sudoku.js
 js/battleship.js
 js/wordsearch.js
 js/hangman.js
+js/connect4.js
 js/scale.js
 
 # JSON Locales

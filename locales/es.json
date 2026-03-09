@@ -65,5 +65,18 @@
     "confirm_fleet": "Confirmar Flota",
     "words_short": ["SOL", "LUNA", "LUZ", "DIA", "GATO", "RATA", "SAPO", "PATO", "OSO", "LEON", "LOBO", "TELA", "JUEGO", "BOLA", "BOTA", "MESA", "FUEGO", "CIELO", "MAR", "RIO", "HUEVO", "PAN", "COLOR", "VOZ", "BIEN", "MAL", "PAZ", "CRUZ", "ORO", "CASA", "CAFE", "VALLE", "BELO", "VASO", "BOCA", "VILA", "FOTO", "ROSA", "ALVO", "ARCO", "ARTE", "BALE", "BOLO", "BONO", "CABO", "COLA", "DADO", "DULCE", "EJEM", "EJE"],
     "words_medium": ["ESPANA", "ANIMAL", "VERANO", "OTONO", "HOJAS", "ARBOL", "PAJARO", "PLANTA", "AMIGOS", "MUSICA", "CANETA", "TECLADO", "BATERIA", "LECTURA", "ESPEJO", "SILLA", "RELOJ", "ZAPATO", "PAGINA", "OCEANO", "VIAJE", "PINA", "ABEJA", "ABRIGO", "ACUERDO", "ADULTO", "AGENTE", "AGOSTO", "ALEGRE", "ALUMNO", "AMARILLO", "AMPARO", "ANDAR", "ANEIS", "ANTENA", "ANTIGUO"],
-    "words_long": ["ORDENADOR", "ELECTRONICA", "TELEVISION", "MARIPOSA", "BIBLIOTECA", "FOTOGRAFIA", "MATEMATICA", "CHOCOLATE", "PAJARITO", "TORTUGA", "DINOSAURIO", "ESTUDIANTE", "JUGUETES", "FELICIDAD", "NATURALEZA", "PROGRAMABLE", "HISTORIA", "ASTRONAUTA", "PIRAMIDE", "UNIVERSO", "TELEFONO", "MISTERIO", "ELEFANTE", "MONTANA", "ARQUITECTURA", "TECNOLOGIA", "AEROPUERTO", "FLORESTA", "DIAMANTE", "MELON", "ACADEMIA", "ACCIDENTE", "ALIMENTO", "ALQUIMIA", "ALTITUD", "AMBULANCIA", "AMBIENTE", "AMISTAD", "ANATOMIA"]
+    "words_long": ["ORDENADOR", "ELECTRONICA", "TELEVISION", "MARIPOSA", "BIBLIOTECA", "FOTOGRAFIA", "MATEMATICA", "CHOCOLATE", "PAJARITO", "TORTUGA", "DINOSAURIO", "ESTUDIANTE", "JUGUETES", "FELICIDAD", "NATURALEZA", "PROGRAMABLE", "HISTORIA", "ASTRONAUTA", "PIRAMIDE", "UNIVERSO", "TELEFONO", "MISTERIO", "ELEFANTE", "MONTANA", "ARQUITECTURA", "TECNOLOGIA", "AEROPUERTO", "FLORESTA", "DIAMANTE", "MELON", "ACADEMIA", "ACCIDENTE", "ALIMENTO", "ALQUIMIA", "ALTITUD", "AMBULANCIA", "AMBIENTE", "AMISTAD", "ANATOMIA"],
+    "connect4_title": "4 en Línea",
+    "connect4_desc": "Alinea 4 fichas para ganar.",
+    "connect4_rules": "El clásico juego de estrategia. Deja caer tus fichas en la cuadrícula e intenta formar una línea horizontal, vertical o diagonal con 4 fichas antes que tu oponente.",
+    "score_p1_c4": "Jugador 1 (Negro): ",
+    "score_p2_c4": "Jugador 2 (Blanco): ",
+    "score_cpu_c4": "IA (Blanco): ",
+    "turn_p1": "Turno del Jugador 1",
+    "turn_p2": "Turno del Jugador 2",
+    "cpu_turn": "La IA está pensando...",
+    "p1_wins": "¡Jugador 1 Gana!",
+    "p2_wins": "¡Jugador 2 Gana!",
+    "cpu_wins": "¡IA Gana!",
+    "status_draw": "¡Empate!"
 }
